@@ -415,7 +415,7 @@ function tdcli_update_callback(data)
 					local wlinks = redis:scard("botBOT-IDwaitelinks")
 					local glinks = redis:scard("botBOT-IDgoodlinks")
 					local links = redis:scard("botBOT-IDsavedlinks")
-					local txt = "<i>⚙️ وضعیت اجرایی تبلیغ‌گر</i><code> BOT-ID </code>⛓\n\n" .. tostring(autoanswer) .."<code> حالت پاسخگویی خودکار 🗣 </code>\n" .. tostring(numadd) .. "<code> افزودن مخاطب با شماره 📞 </code>\n" .. tostring(msgadd) .. "<code> افزودن مخاطب با پیام 🗞</code>\n〰〰〰ا〰〰〰\n<code>📄 پیام افزودن مخاطب :</code>\n📍 " .. tostring(txtadd) .. " 📍\n〰〰〰ا〰〰〰\n<code>📁 لینک های ذخیره شده : </code><b>" .. tostring(links) .. "</b>\n<code>⏲	لینک های در انتظار عضویت : </code><b>" .. tostring(glinks) .. "</b>\n🕖   <b>" .. tostring(s) .. " </b><code>ثانیه تا عضویت مجدد</code>\n<code>❄️ لینک های در انتظار تایید : </code><b>" .. tostring(wlinks) .. "</b>\n🕑️   <b>" .. tostring(ss) .. " </b><code>ثانیه تا تایید لینک مجدد</code>\n 😼 سازنده : @i_naji"
+					local txt = "<i>وضعیت ربات</i><code> BOT-ID </code>⛓\n\n" .. tostring(autoanswer) .."<code> حالت پاسخگویی خودکار 🗣 </code>\n" .. tostring(numadd) .. "<code> افزودن مخاطب با شماره 📞 </code>\n" .. tostring(msgadd) .. "<code> افزودن مخاطب با پیام 🗞</code>\n〰〰〰ا〰〰〰\n<code>📄 پیام افزودن مخاطب :</code>\n📍 " .. tostring(txtadd) .. " 📍\n〰〰〰ا〰〰〰\n<code>📁 لینک های ذخیره شده : </code><b>" .. tostring(links) .. "</b>\n<code>⏲	لینک های در انتظار عضویت : </code><b>" .. tostring(glinks) .. "</b>\n🕖   <b>" .. tostring(s) .. " </b><code>ثانیه تا عضویت مجدد</code>\n<code>❄️ لینک های در انتظار تایید : </code><b>" .. tostring(wlinks) .. "</b>\n🕑️   <b>" .. tostring(ss) .. " </b><code>ثانیه تا تایید لینک مجدد</code>\n"
 					return send(msg.chat_id_, 0, txt)
 				elseif text:match("^(امار)$") or text:match("^(آمار)$") then
 					local gps = redis:scard("botBOT-IDgroups")
@@ -433,19 +433,19 @@ function tdcli_update_callback(data)
 					end, nil)
 					local contacts = redis:get("botBOT-IDcontacts")
 					local text = [[
-<i>📈 وضعیت و آمار تبلیغ گر 📊</i>
-          
-<code>👤 گفت و گو های شخصی : </code>
+<i>?Haji_Mokh_Radi?</i>
+					
+<code>??Private Chats: </code>
 <b>]] .. tostring(usrs) .. [[</b>
-<code>👥 گروها : </code>
+<code>??Groups: </code>
 <b>]] .. tostring(gps) .. [[</b>
-<code>🌐 سوپر گروه ها : </code>
+<code>??Souper Groups: </code>
 <b>]] .. tostring(sgps) .. [[</b>
-<code>📖 مخاطبین دخیره شده : </code>
+<code>??Reserve contacts: </code>
 <b>]] .. tostring(contacts)..[[</b>
-<code>📂 لینک های ذخیره شده : </code>
+<code>??Reserve Links: </code>
 <b>]] .. tostring(links)..[[</b>
- 😼 سازنده : @i_naji]]
+<i>BoT: @Bot_mebot</i>
 					return send(msg.chat_id_, 0, text)
 				elseif (text:match("^(ارسال به) (.*)$") and msg.reply_to_message_id_ ~= 0) then
 					local matches = text:match("^ارسال به (.*)$")
